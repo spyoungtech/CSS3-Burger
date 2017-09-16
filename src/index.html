@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+    line {
+  stroke: rgb(255, 255, 255);
+  stroke-width: 6;
+}
+
+.top {
+  opacity: 1;
+  transition: transform 1s;
+}
+
+.middle {
+  transition: opacity 1s;
+}
+
+.bottom {
+  transition: transform 1s;
+}
+
+#toggle:checked ~ label > #target > .top {
+  transform: translate(-6px, 37px) rotate(-45deg);
+}
+
+#toggle:checked ~ label > #target > .middle {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+#toggle:checked ~ label > #target > .bottom {
+  transform: translate(28px, -14px)rotate(45deg);
+  transition: transform 1s;
+}
+
+</style>
+</head>
+<body style="background-color: blue;">
+  <input type="checkbox" id="toggle" style="width: 0; height: 0; position: fixed; left:-1" />
+  <label for="toggle" style="display: inline">
+    <svg id="target" height="48" width="48" style="">
+      <line class="top" x1="0" y1="12" x2="48" y2="12" />
+      <line class="middle" x1="0" y1="24" x2="48" y2="24" />
+      <line class="bottom" x1="0" y1="36" x2="48" y2="36" /> Sorry, your browser does not support inline SVG.
+    </svg>
+  </label>
+</body>
+</html>
